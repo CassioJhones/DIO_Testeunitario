@@ -1,6 +1,4 @@
-﻿using Calculadora.Services;
-
-CalculadoraImp c1 = new CalculadoraImp();
+﻿CalculadoraImp c1 = new CalculadoraImp();
 
 int n1 = 5; 
 int n2 = 25;

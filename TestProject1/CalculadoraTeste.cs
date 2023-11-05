@@ -56,17 +56,12 @@ public class CalculadoraTeste
     }
 
     [Theory]
-    [InlineData(2)]
-    [InlineData(4)]
-    [InlineData(6)]
-    [InlineData(5)]
-    [InlineData(3)]
-    public void VerificaTodoNumeros(int nInlineData)
+    [InlineData(new int[] { 2, 4})]
+    [InlineData(new int[] { 6, 8, 10})]
+    public void VerificaTodoNumeros(int[] nInlineData)
     {
-        //Act
-        bool resultado = _calc.ImparPar(nInlineData);
-        //Assert
-        Assert.True(resultado, "Numero foi Impar");
+        //Act / Assert
+        Assert.All(nInlineData, num => Assert.True(_calc.ImparPar(num)));
     }
     //Recebe todos os inlineData como parametro de teste
     //quando for THEORY

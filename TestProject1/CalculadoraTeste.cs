@@ -1,24 +1,28 @@
 namespace TestProject1;
 
-public class CalculadoraTeste{
+public class CalculadoraTeste
+{
     private CalculadoraImp _calc;
-    public CalculadoraTeste(){
-        _calc = new CalculadoraImp();   
+    public CalculadoraTeste()
+    {
+        _calc = new CalculadoraImp();
     }
 
     [Fact]
-    public void Somar5e10(){
+    public void Somar5e10()
+    {
         //Arrange
         int n1 = 5;
         int n2 = 10;
         //Act
         int resultado = _calc.Somar(n1, n2);
         //Assert
-        Assert.Equal(15,resultado);
+        Assert.Equal(15, resultado);
     }
 
     [Fact]
-    public void Somar10e10(){
+    public void Somar10e10()
+    {
         //Arrange
         int n1 = 10, n2 = 10;
         //Act
@@ -28,7 +32,8 @@ public class CalculadoraTeste{
     }
 
     [Fact]
-    public void Multiplicar10e10(){
+    public void Multiplicar10e10()
+    {
         //Arrange
         int n1 = 10, n2 = 10;
         //Act
@@ -38,7 +43,8 @@ public class CalculadoraTeste{
     }
 
     [Fact]
-    public void VerificaParouImpar(){
+    public void VerificaParouImpar()
+    {
         //Arrange
         int num = 10;
         //Act
@@ -46,5 +52,22 @@ public class CalculadoraTeste{
         //Assert
         Assert.True(resultado, "É Par");
         //Assert.False(resultado, "É Impar");
+
     }
+
+    [Theory]
+    [InlineData(2)]
+    [InlineData(4)]
+    [InlineData(6)]
+    [InlineData(5)]
+    [InlineData(3)]
+    public void VerificaTodoNumeros(int nInlineData)
+    {
+        //Act
+        bool resultado = _calc.ImparPar(nInlineData);
+        //Assert
+        Assert.True(resultado, "Numero foi Impar");
+    }
+    //Recebe todos os inlineData como parametro de teste
+    //quando for THEORY
 }

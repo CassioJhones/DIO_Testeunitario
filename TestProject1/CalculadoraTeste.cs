@@ -1,3 +1,5 @@
+using ConsoleApp;
+
 namespace TestProject1;
 
 public class CalculadoraTeste
